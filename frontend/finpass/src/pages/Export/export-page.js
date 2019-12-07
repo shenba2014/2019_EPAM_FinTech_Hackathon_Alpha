@@ -25,9 +25,24 @@ export const ExportPage = () => {
     };
 
     const handleClickExport = async (e) => {
-        const response = await fetch('/api/create-document-link', { method: 'POST' });
-        const data = await response.json();
-        console.log(data);
+        try {
+            const response = await fetch('/api/create-document-link', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    agency: bank,
+                    items: [...selectedItems],
+                    type: 'string',
+                })
+            });
+            const data = await response.json();
+            console.log(data);
+        } catch (err) {
+            console.error(err);
+            return;
+        }
     };
 
     useEffect(
@@ -62,9 +77,9 @@ export const ExportPage = () => {
                     <div className="input-field col s12">
                         <select ref={bankSelector} value={bank} onChange={({ target: { value } }) => setBank(value)}>
                             <option value="" disabled>Choose a bank</option>
-                            <option value="1">China Merchants Bank</option>
-                            <option value="2">Citic Bank</option>
-                            <option value="3">Ping An Bank</option>
+                            <option value="CMB">China Merchants Bank</option>
+                            <option value="CITIC">Citic Bank</option>
+                            <option value="PA">Ping An Bank</option>
                         </select>
                         <label>1. Which bank your data bundle will be generated for</label>
                     </div>
