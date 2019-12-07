@@ -15,7 +15,7 @@ namespace FinTechHackathonAlpha.WebApi
 {
     public class Startup
     {
-	    private const string ApiName = "FinTechHackathonAlpha.WebApi";
+	    private const string ApiName = "FinPass.WebApi";
 	    private const string ApiVersion = "v1";
 
 		public Startup(IConfiguration configuration)
@@ -36,7 +36,7 @@ namespace FinTechHackathonAlpha.WebApi
 		        {
 			        Title = ApiName,
 			        Version = ApiVersion,
-			        Description = "Web Api for FinTech Hackathon Alpha"
+			        Description = "FinPass WebAPI"
 				});
 	        });
 		}
