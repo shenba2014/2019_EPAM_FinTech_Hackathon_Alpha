@@ -32,12 +32,8 @@ namespace FinTechHackathonAlpha.WebApi.Controllers
 		    }
 		    else
 		    {
-			    using (var streamReader = new StreamReader(Request.Body))
-			    {
-				    var requestString = await streamReader.ReadToEndAsync();
-				    _logger.LogError($"Validate Failed:requestString={requestString}");
-				    return requestString;
-			    }
+			    _logger.LogError($"Validate Failed:requestString={Request.QueryString.ToString()}");
+			    return Request.QueryString.ToString();
 		    }
 	    }
 	}
