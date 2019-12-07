@@ -5,7 +5,12 @@ using System.Threading.Tasks;
 
 namespace FinTechHackathonAlpha.WebApi.Entity
 {
-	public class Profile
+	public class Profile : IEntity
 	{
+		public int Id { get; set; }
+
+		public string FirstName { get; set; }
+
+		public string LastName { get; set; }
 	}
 }

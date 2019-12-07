@@ -7,6 +7,8 @@ namespace FinTechHackathonAlpha.WebApi.Models
 {
 	public class UpdateProfileModel
 	{
+		public int Id { get; set; }
+
 		public string FirstName { get; set; }
 
 		public string LastName { get; set; }

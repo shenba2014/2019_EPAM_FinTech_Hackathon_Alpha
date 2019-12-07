@@ -44,11 +44,12 @@ namespace FinTechHackathonAlpha.WebApi
 	        });
 
 	        services.AddDbContext<FinPassDbContext>(options =>
-		        options.UseSqlite(Configuration.GetConnectionString("SqliteConnection")));
+		        options.UseInMemoryDatabase(databaseName: "FinPassDatabase"));
 
 			services.AddSingleton<IEchoUrlValidator, EchoUrlValidator>();
-
-        }
+	        services.AddScoped<IProfileRepository, ProfileRepository>();
+	        services.AddScoped<IProfileArtifactRepository, ProfileArtifactRepository>();
+		}
 
 		// This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
 		public void Configure(IApplicationBuilder app, IHostingEnvironment env)
