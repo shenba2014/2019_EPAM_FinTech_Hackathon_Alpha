@@ -6,6 +6,7 @@ import {
 } from "react-router-dom";
 import Profile from './pages/Profile';
 import Tasks from './pages/Tasks';
+import { ExportPage } from './pages/Export/export-page';
 
 function App() {
   return (
@@ -17,6 +18,9 @@ function App() {
             </Route>
             <Route path="/tasks">
               <Tasks />
+            </Route>
+            <Route path="/export">
+              <ExportPage />
             </Route>
           </Switch>
         </Router>      
