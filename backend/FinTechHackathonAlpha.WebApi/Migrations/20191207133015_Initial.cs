@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore.Migrations;
+﻿using System;
+using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace FinTechHackathonAlpha.WebApi.Migrations
 {
@@ -23,7 +24,11 @@ namespace FinTechHackathonAlpha.WebApi.Migrations
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
-                        .Annotation("Sqlite:Autoincrement", true)
+                        .Annotation("Sqlite:Autoincrement", true),
+                    ProfileId = table.Column<int>(nullable: false),
+                    Name = table.Column<string>(nullable: true),
+                    Type = table.Column<string>(nullable: true),
+                    Content = table.Column<byte[]>(nullable: true)
                 },
                 constraints: table =>
                 {
