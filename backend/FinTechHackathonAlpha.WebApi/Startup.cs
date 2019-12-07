@@ -44,7 +44,7 @@ namespace FinTechHackathonAlpha.WebApi
 	        });
 
 	        services.AddDbContext<FinPassDbContext>(options =>
-		        options.UseInMemoryDatabase(databaseName: "FinPassDatabase"));
+		        options.UseSqlite(Configuration.GetConnectionString("SqliteConnection")));
 
 			services.AddSingleton<IEchoUrlValidator, EchoUrlValidator>();
 	        services.AddScoped<IProfileRepository, ProfileRepository>();

@@ -23,48 +23,22 @@ namespace FinTechHackathonAlpha.WebApi.Controllers
 			_profileArtifactRepository = profileArtifactRepository;
 		}
 
-	    [HttpGet("all-profiles")]
-	    public  IEnumerable<ProfileModel> GetProfileAsync()
-	    {
-		    var profiles = _profileRepository.GetAll();
-
-		    return profiles.Select(profile => new ProfileModel()
-		    {
-			    FirstName = profile.FirstName,
-			    LastName = profile.LastName
-			});
-	    }
-
 		[HttpGet("get-profile")]
-	    public async Task<ProfileModel> GetProfileAsync(int id)
+	    public async Task<Profile> GetProfileAsync(int id)
 		{
-			var profile = await _profileRepository.GetByIdAsync(id);
-			return new ProfileModel
-			{
-				FirstName = profile.FirstName,
-				LastName = profile.LastName
-			};
+			return await _profileRepository.GetByIdAsync(id);
 		}
 
 		[HttpPost("update-profile")]
-		public async Task UpdateProfileAsync([FromBody] UpdateProfileModel model)
+		public async Task UpdateProfileAsync([FromBody] Profile model)
 		{
 			if (model.Id == 0)
 			{
-				await _profileRepository.CreateAsync(new Profile
-				{
-					FirstName = model.FirstName,
-					LastName = model.LastName
-				});
+				await _profileRepository.CreateAsync(model);
 			}
 			else
 			{
-				await _profileRepository.UpdateAsync(model.Id, new Profile
-				{
-					Id = model.Id,
-					FirstName = model.FirstName,
-					LastName = model.LastName
-				});
+				await _profileRepository.UpdateAsync(model.Id, model);
 			}
 		}
 
@@ -73,7 +47,13 @@ namespace FinTechHackathonAlpha.WebApi.Controllers
 	    {
 	    }
 
-	    [HttpPost("create-document-link")]
+		[HttpDelete("delete-artifact")]
+	    public void DeleteArtifact(string id)
+	    {
+
+	    }
+
+		[HttpPost("create-document-link")]
 		public void CreateDocumentLink([FromBody] CreateDocumentLinkModel model)
 	    {
 	    }
