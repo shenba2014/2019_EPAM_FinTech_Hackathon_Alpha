@@ -23,18 +23,18 @@ namespace FinTechHackathonAlpha.WebApi.Controllers
 			_logger = logger;
 		}
 
-	    [HttpGet]
-	    public async Task<string> ValidateAccess(string signature, string timestamp, string nonce, string echostr)
-	    {
-		    if (_echoUrlValidator.IsValid(signature, timestamp, nonce, echostr))
-		    {
-			    return echostr;
-		    }
-		    else
-		    {
-			    _logger.LogError($"Validate Failed:requestString={Request.QueryString.ToString()}");
-			    return Request.QueryString.ToString();
-		    }
-	    }
+		[HttpGet]
+		public string ValidateAccess(string signature, string timestamp, string nonce, string echostr)
+		{
+			if (_echoUrlValidator.IsValid(signature, timestamp, nonce, echostr))
+			{
+				return echostr;
+			}
+			else
+			{
+				_logger.LogError($"Validate Failed:requestString={Request.QueryString.ToString()}");
+				return Request.QueryString.ToString();
+			}
+		}
 	}
 }

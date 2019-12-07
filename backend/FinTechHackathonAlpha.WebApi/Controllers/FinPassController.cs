@@ -23,18 +23,35 @@ namespace FinTechHackathonAlpha.WebApi.Controllers
 			_profileArtifactRepository = profileArtifactRepository;
 		}
 
+	    [HttpGet("all-profiles")]
+	    public  IEnumerable<ProfileModel> GetProfileAsync()
+	    {
+		    var profiles = _profileRepository.GetAll();
+
+		    return profiles.Select(profile => new ProfileModel()
+		    {
+			    FirstName = profile.FirstName,
+			    LastName = profile.LastName
+			});
+	    }
+
 		[HttpGet("get-profile")]
-	    public ProfileModel GetProfile(int id)
+	    public async Task<ProfileModel> GetProfileAsync(int id)
 		{
-			return new ProfileModel();
+			var profile = await _profileRepository.GetByIdAsync(id);
+			return new ProfileModel
+			{
+				FirstName = profile.FirstName,
+				LastName = profile.LastName
+			};
 		}
 
 		[HttpPost("update-profile")]
-		public void UpdateProfile([FromBody] UpdateProfileModel model)
+		public async Task UpdateProfileAsync([FromBody] UpdateProfileModel model)
 		{
 			if (model.Id == 0)
 			{
-				_profileRepository.CreateAsync(new Profile
+				await _profileRepository.CreateAsync(new Profile
 				{
 					FirstName = model.FirstName,
 					LastName = model.LastName
@@ -42,7 +59,7 @@ namespace FinTechHackathonAlpha.WebApi.Controllers
 			}
 			else
 			{
-				_profileRepository.UpdateAsync(model.Id, new Profile
+				await _profileRepository.UpdateAsync(model.Id, new Profile
 				{
 					Id = model.Id,
 					FirstName = model.FirstName,
