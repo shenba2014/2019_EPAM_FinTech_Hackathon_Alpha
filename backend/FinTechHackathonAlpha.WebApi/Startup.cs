@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using FinTechHackathonAlpha.WebApi.Configuration;
+using FinTechHackathonAlpha.WebApi.Security;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
@@ -36,9 +38,13 @@ namespace FinTechHackathonAlpha.WebApi
 		        {
 			        Title = ApiName,
 			        Version = ApiVersion,
-			        Description = "Api for Alpha Link App"
-		        });
+			        Description = "Web Api for FinTech Hackathon Alpha"
+				});
 	        });
+
+	        services.Configure<OfficialAccountSetting>(Configuration.GetSection("OfficialAccount"));
+
+			services.AddSingleton<IOfficialAccountAccessValidator, OfficialAccountAccessValidator>();
 		}
 
 		// This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -57,6 +63,6 @@ namespace FinTechHackathonAlpha.WebApi
             }
 
             app.UseMvc();
-        }
+		}
     }
 }
