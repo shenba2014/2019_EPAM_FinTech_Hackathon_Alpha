@@ -54,25 +54,29 @@ export const ExportPage = () => {
     );
 
     return (
-        <Fragment>
-            <h2>Export Your Data Bundle</h2>
+        <div className="row">
+            <div className="col s12">
+                <Fragment>
+                    <h2>Export Your Data Bundle</h2>
 
-            <div className="input-field col s12">
-                <select ref={bankSelector} value={bank} onChange={({ target: { value } }) => setBank(value)}>
-                    <option value="" disabled>Choose a bank</option>
-                    <option value="1">China Merchants Bank</option>
-                    <option value="2">Citic Bank</option>
-                    <option value="3">Ping An Bank</option>
-                </select>
-                <label>1. Which bank your data bundle will be generated for</label>
+                    <div className="input-field col s12">
+                        <select ref={bankSelector} value={bank} onChange={({ target: { value } }) => setBank(value)}>
+                            <option value="" disabled>Choose a bank</option>
+                            <option value="1">China Merchants Bank</option>
+                            <option value="2">Citic Bank</option>
+                            <option value="3">Ping An Bank</option>
+                        </select>
+                        <label>1. Which bank your data bundle will be generated for</label>
+                    </div>
+
+                    {
+                        bank.length > 0 && <BundleItemSelector items={availableItems} onChange={handleItemSelectionChange} />
+                    }
+                    {
+                        bank.length > 0 && <a className="waves-effect waves-light btn" onClick={handleClickExport}>Export</a>
+                    }
+                </Fragment>
             </div>
-
-            {
-                bank.length > 0 && <BundleItemSelector items={availableItems} onChange={handleItemSelectionChange} />
-            }
-            {
-                bank.length > 0 && <a className="waves-effect waves-light btn" onClick={handleClickExport}>Export</a>
-            }
-        </Fragment>
+        </div>
     );
 };
