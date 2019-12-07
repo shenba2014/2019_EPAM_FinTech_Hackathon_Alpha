@@ -25,7 +25,10 @@ namespace FinTechHackathonAlpha.WebApi
 		            logging.ClearProviders();
 		            logging.SetMinimumLevel(Microsoft.Extensions.Logging.LogLevel.Trace);
 		            logging.AddConsole();
-
+	            })
+	            .ConfigureAppConfiguration((hostingContext, config) =>
+	            {
+		            config.AddEnvironmentVariables();
 	            })
 	            .UseNLog()
 				.UseStartup<Startup>();
