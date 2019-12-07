@@ -31,7 +31,8 @@ namespace FinTechHackathonAlpha.WebApi
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
+	        services.AddCors();
+			services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
 
 	        services.AddSwaggerGen(c =>
 	        {
@@ -49,7 +50,7 @@ namespace FinTechHackathonAlpha.WebApi
 			services.AddSingleton<IEchoUrlValidator, EchoUrlValidator>();
 	        services.AddScoped<IProfileRepository, ProfileRepository>();
 	        services.AddScoped<IProfileArtifactRepository, ProfileArtifactRepository>();
-		}
+        }
 
 		// This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
 		public void Configure(IApplicationBuilder app, IHostingEnvironment env)
@@ -66,7 +67,8 @@ namespace FinTechHackathonAlpha.WebApi
                 app.UseDeveloperExceptionPage();
             }
 
-            app.UseMvc();
-		}
+	        app.UseCors();
+			app.UseMvc();
+        }
     }
 }
