@@ -1,5 +1,4 @@
 import React from 'react';
-import './BasicInfo.css';
 
 export default class BasicInfo extends React.Component {
   render() {
@@ -32,6 +31,11 @@ export default class BasicInfo extends React.Component {
             <div className="input-field col s12">
               <input id="email" type="email" className="validate" />
               <label htmlFor="email">Email</label>
+            </div>
+          </div>
+          <div className="row">
+            <div className="input-field col s12">
+              <a class="waves-effect waves-light btn-large amber col s8 offset-s2">save</a>
             </div>
           </div>
         </form>

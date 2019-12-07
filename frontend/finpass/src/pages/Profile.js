@@ -7,8 +7,8 @@ import {
 } from "react-router-dom";
 import logo from '../FinPass.png';
 import './Profile.css';
-import BasicInfo from './BasicInfo';
-import Attachment from './Attachment';
+import BasicInfo from './Profile/BasicInfo';
+import Attachment from './Profile/Attachment';
 
 export default class Profile extends React.Component {
 
