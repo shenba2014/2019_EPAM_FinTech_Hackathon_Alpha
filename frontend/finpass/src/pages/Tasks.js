@@ -1,9 +1,11 @@
 import React from 'react';
 
-export default function Tasks() {
-  return (
-    <div>
-      <h2>Tasks</h2>
-    </div>
-  );
+export default class Tasks extends React.Component {
+  render() {
+    return (
+      <div>
+        <h2>Tasks Page</h2>
+      </div>
+    );
+  }
 }

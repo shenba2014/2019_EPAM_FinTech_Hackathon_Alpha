@@ -1,30 +1,16 @@
 import React from 'react';
-import './App.css';
 import {
   BrowserRouter as Router,
   Switch,
-  Route,
-  Link
+  Route
 } from "react-router-dom";
 import Profile from './pages/Profile';
 import Tasks from './pages/Tasks';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <h2>
-          FinPass
-        </h2>
+    <div>
         <Router>
-          <ul>
-            <li>
-              <Link to="/profile">My Profile</Link>
-            </li>
-            <li>
-              <Link to="/tasks">Tasks</Link>
-            </li>
-          </ul>
           <Switch>
             <Route path="/profile">
               <Profile />
@@ -33,9 +19,7 @@ function App() {
               <Tasks />
             </Route>
           </Switch>
-        </Router>
-      </header>
-      
+        </Router>      
     </div>
   );
 }
