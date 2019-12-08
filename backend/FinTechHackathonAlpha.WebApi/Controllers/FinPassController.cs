@@ -5,6 +5,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using FinTechHackathonAlpha.WebApi.Entity;
 using FinTechHackathonAlpha.WebApi.Repository;
+using FinTechHackathonAlpha.WebApi.Service;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -16,11 +17,13 @@ namespace FinTechHackathonAlpha.WebApi.Controllers
     {
 		private readonly IProfileRepository _profileRepository;
 		private readonly IProfileArtifactRepository _profileArtifactRepository;
+		private readonly IDocumentService _documentService;
 
-		public FinPassController(IProfileRepository profileRepository, IProfileArtifactRepository profileArtifactRepository)
+		public FinPassController(IProfileRepository profileRepository, IProfileArtifactRepository profileArtifactRepository, IDocumentService documentService)
 	    {
 			_profileRepository = profileRepository;
 			_profileArtifactRepository = profileArtifactRepository;
+			_documentService = documentService;
 		}
 
 		[HttpGet("get-profile")]
@@ -109,8 +112,15 @@ namespace FinTechHackathonAlpha.WebApi.Controllers
 		}
 
 	    [HttpGet("request-document")]
-		public void RequestDocument(string agency, int profileId, string additionArtifacts)
+		public async Task<IActionResult> RequestDocumentAsync(string agency, int profileId, string additionArtifacts)
 	    {
-	    }
+		    var profile = await _profileRepository.GetByIdAsync(profileId);
+
+		    var stream = _documentService.Create(agency, profile);
+
+		    stream.Position = 0;
+
+			return File(stream, "application/octet-stream", $"{agency}_{profile.FirstName}.pdf");
+		}
 	}
 }

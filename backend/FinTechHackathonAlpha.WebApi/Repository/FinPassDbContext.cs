@@ -18,8 +18,6 @@ namespace FinTechHackathonAlpha.WebApi.Repository
 
 		public DbSet<ProfileArtifact> ProfileArtifacts { get; set; }
 
-		public DbSet<DocumentTemplate> DocumentTemplates { get; set; }
-
 		protected override void OnModelCreating(ModelBuilder builder)
 		{
 			base.OnModelCreating(builder);

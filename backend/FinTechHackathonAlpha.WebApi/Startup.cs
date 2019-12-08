@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using FinTechHackathonAlpha.WebApi.OfficialAccount;
 using FinTechHackathonAlpha.WebApi.Repository;
+using FinTechHackathonAlpha.WebApi.Service;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
@@ -50,6 +51,8 @@ namespace FinTechHackathonAlpha.WebApi
 			services.AddSingleton<IEchoUrlValidator, EchoUrlValidator>();
 	        services.AddScoped<IProfileRepository, ProfileRepository>();
 	        services.AddScoped<IProfileArtifactRepository, ProfileArtifactRepository>();
+	        services.AddScoped<IDocumentService, DocumentService>();
+	        services.AddScoped<IFillFormService, FillFormService>();
         }
 
 		// This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
