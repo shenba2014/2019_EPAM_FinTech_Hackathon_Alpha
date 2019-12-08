@@ -82,7 +82,7 @@ const BasicInfo = () => {
         </div>
         <div className="row">
           <div className="input-field col s12">
-            <a className="waves-effect waves-light btn-large amber col s8 offset-s2" onClick={handleClickSave}>save</a>
+            <a className="waves-effect waves-light btn-large orange col s8 offset-s2" onClick={handleClickSave}>save</a>
           </div>
         </div>
       </form>
