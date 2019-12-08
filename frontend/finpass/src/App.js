@@ -6,6 +6,7 @@ import {
 } from "react-router-dom";
 import Profile from './pages/Profile';
 import Tasks from './pages/Tasks';
+import Home from './pages/Home';
 import { ExportPage } from './pages/Export/export-page';
 
 function App() {
@@ -21,6 +22,9 @@ function App() {
             </Route>
             <Route path="/export">
               <ExportPage />
+            </Route>
+            <Route path="/">
+              <Home />
             </Route>
           </Switch>
         </Router>      

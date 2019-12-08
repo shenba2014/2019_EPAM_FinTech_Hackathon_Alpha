@@ -35,7 +35,7 @@ export default class BasicInfo extends React.Component {
           </div>
           <div className="row">
             <div className="input-field col s12">
-              <a class="waves-effect waves-light btn-large amber col s8 offset-s2">save</a>
+              <a className="waves-effect waves-light btn-large orange col s8 offset-s2">save</a>
             </div>
           </div>
         </form>

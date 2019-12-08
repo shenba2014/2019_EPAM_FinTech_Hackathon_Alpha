@@ -6,7 +6,7 @@ import {
   Link
 } from "react-router-dom";
 import logo from '../FinPass.png';
-import './Profile.css';
+import './page.css';
 import BasicInfo from './Profile/BasicInfo';
 import Attachment from './Profile/Attachment';
 
@@ -17,7 +17,9 @@ export default class Profile extends React.Component {
       <Router>
           <nav className="nav-extended">
             <div className="nav-wrapper blue">
-              <img src={logo} alt="finPass" className='brand-logo center logo'/> 
+              <a href="/" className="brand-logo center logo">
+                <img src={logo} alt="finPass" className='brand-logo center logo'/> 
+              </a>
             </div>
             <div className="nav-content blue">
               <ul className="tabs tabs-transparent">

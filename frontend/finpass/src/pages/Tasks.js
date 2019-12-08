@@ -1,6 +1,6 @@
 import React from 'react';
 import logo from '../FinPass.png';
-import './Profile.css';
+import './page.css';
 import { ExportPage } from './Export/export-page';
 
 export default class Tasks extends React.Component {
@@ -9,7 +9,9 @@ export default class Tasks extends React.Component {
       <div>
         <nav className="nav">
           <div className="nav-wrapper blue">
-            <img src={logo} alt="finPass" className='brand-logo center logo'/> 
+            <a href="/" className="brand-logo center logo">
+              <img src={logo} alt="finPass" className='brand-logo center logo'/> 
+            </a>
           </div>
         </nav>
         <ExportPage />
