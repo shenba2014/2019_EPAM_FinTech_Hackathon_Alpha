@@ -17,10 +17,10 @@ export default class Profile extends React.Component {
       <Router>
           <nav className="nav-extended">
             <div className="nav-wrapper blue">
-              <a href="/" className="brand-logo logo">
-                <img src={logo} alt="finPass" className='brand-logo logo'/> 
+              <a href="/" className="left brand-logo logo">
+                <img src={logo} alt="finPass" className='left brand-logo logo'/> 
               </a>
-              <ul className="right hide-on-med-and-down blue">
+              <ul className="right blue">
                 <li><a href="/tasks">Tasks</a></li>
               </ul>
             </div>
