@@ -60,7 +60,7 @@ export const ExportPage = () => {
 
     return (
         <div className="row">
-            <div className="col s10 offset-s1">
+            <div className="col s9 offset-s1">
                 <Fragment>
                     <h2>Export Your Data Bundle</h2>
 
@@ -78,7 +78,17 @@ export const ExportPage = () => {
                         bank.length > 0 && <BundleItemSelector items={availableItems} onChange={handleItemSelectionChange} />
                     }
                     {
-                        bank.length > 0 && <a className="waves-effect waves-light btn" href={`http://fintechalpha.eastasia.cloudapp.azure.com/api/request-document?agency=EPAM&profileId=5`}>Export</a>
+                        bank.length > 0 
+                        && (
+                            <div className="row">
+                                <div className="input-field col s11 offset-s1">
+                                    <a 
+                                        className="waves-effect waves-light btn-large orange col s9 offset-s2" 
+                                        href={`http://fintechalpha.eastasia.cloudapp.azure.com/api/request-document?agency=EPAM&profileId=5`}
+                                    >Export</a>
+                                </div>
+                            </div>
+                        )
                     }
                 </Fragment>
             </div>
