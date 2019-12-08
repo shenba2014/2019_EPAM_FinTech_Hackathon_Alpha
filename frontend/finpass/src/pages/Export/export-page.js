@@ -26,17 +26,7 @@ export const ExportPage = () => {
 
     const handleClickExport = async (e) => {
         try {
-            const response = await fetch('/api/create-document-link', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({
-                    agency: bank,
-                    items: [...selectedItems],
-                    type: 'string',
-                })
-            });
+            const response = await fetch(`/api/request-document?agency=${bank}&profileId=5`);
             const data = await response.json();
             console.log(data);
         } catch (err) {
@@ -88,7 +78,7 @@ export const ExportPage = () => {
                         bank.length > 0 && <BundleItemSelector items={availableItems} onChange={handleItemSelectionChange} />
                     }
                     {
-                        bank.length > 0 && <a className="waves-effect waves-light btn" onClick={handleClickExport}>Export</a>
+                        bank.length > 0 && <a className="waves-effect waves-light btn" href={`http://fintechalpha.eastasia.cloudapp.azure.com/api/request-document?agency=EPAM&profileId=5`}>Export</a>
                     }
                 </Fragment>
             </div>
