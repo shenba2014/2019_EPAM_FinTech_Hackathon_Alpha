@@ -8,10 +8,11 @@ import Profile from './pages/Profile';
 import Tasks from './pages/Tasks';
 import Home from './pages/Home';
 import { ExportPage } from './pages/Export/export-page';
+import './App.css';
 
 function App() {
   return (
-    <div>
+    <div className='root'>
         <Router>
           <Switch>
             <Route path="/profile">
