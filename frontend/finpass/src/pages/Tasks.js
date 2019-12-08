@@ -9,9 +9,12 @@ export default class Tasks extends React.Component {
       <div>
         <nav className="nav">
           <div className="nav-wrapper blue">
-            <a href="/" className="brand-logo center logo">
-              <img src={logo} alt="finPass" className='brand-logo center logo'/> 
+            <a href="/" className="brand-logo logo">
+              <img src={logo} alt="finPass" className='brand-logo logo'/> 
             </a>
+            <ul className="right hide-on-med-and-down blue">
+              <li><a href="/profile/basic">My Profile</a></li>
+            </ul>
           </div>
         </nav>
         <ExportPage />
