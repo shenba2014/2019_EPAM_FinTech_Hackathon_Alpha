@@ -60,7 +60,7 @@ export const ExportPage = () => {
 
     return (
         <div className="row">
-            <div className="col s12">
+            <div className="col s10 offset-s1">
                 <Fragment>
                     <h2>Export Your Data Bundle</h2>
 
