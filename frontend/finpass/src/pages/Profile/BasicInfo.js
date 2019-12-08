@@ -57,31 +57,31 @@ const BasicInfo = () => {
             <input id="first_name" type="text" className="validate" value={firstName} onChange={({ target: { value } }) => setFirstName(value)} />
             <label htmlFor="first_name">First Name</label>
           </div>
-          <div className="input-field col s6">
+          <div className="input-field col s5">
             <input id="last_name" type="text" className="validate" value={lastName} onChange={({ target: { value } }) => setLastName(value)} />
             <label htmlFor="last_name">Last Name</label>
           </div>
         </div>
         <div className="row">
-          <div className="input-field col s12">
+          <div className="input-field col s11">
             <input id="id_number" type="text" className="validate" value={idNumber} onChange={({ target: { value } }) => setIdNumber(value)} />
             <label htmlFor="id_number">ID Number</label>
           </div>
         </div>
         <div className="row">
-          <div className="input-field col s12">
+          <div className="input-field col s11">
             <input id="address" type="text" className="validate" value={address} onChange={({ target: { value } }) => setAddress(value)} />
             <label htmlFor="address">Address</label>
           </div>
         </div>
         <div className="row">
-          <div className="input-field col s12">
+          <div className="input-field col s11">
             <input id="email" type="email" className="validate" value={email} onChange={({ target: { value } }) => setEmail(value)} />
             <label htmlFor="email">Email</label>
           </div>
         </div>
         <div className="row">
-          <div className="input-field col s12">
+          <div className="input-field col s11">
             <a className="waves-effect waves-light btn-large orange col s8 offset-s2" onClick={handleClickSave}>save</a>
           </div>
         </div>
