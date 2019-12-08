@@ -21,7 +21,12 @@ namespace FinTechHackathonAlpha.WebApi.Service
 				pdfReader = new PdfReader(inputStream);
 				pdfStamper = new PdfStamper(pdfReader, outStream);
 				AcroFields form = pdfStamper.AcroFields;
-				form.SetField("Name", $"{profile.FirstName} {profile.LastName}");
+				form.SetField("FirstName", $"{profile.FirstName}");
+				form.SetField("LastName", $"{profile.LastName}");
+				form.SetField("IDNumber", $"{profile.IDNumber}");
+				form.SetField("Nationality", $"{profile.Nationality}");
+				form.SetField("Email", $"{profile.Email}");
+				form.SetField("PhoneNumber", $"{profile.PhoneNumber}");
 				pdfStamper.FormFlattening = true;
 				return outStream;
 			}

@@ -6,11 +6,11 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Remove="Forms\CMB\form.pdf" />
+    <None Remove="Forms\EPAM\form.pdf" />
   </ItemGroup>
 
   <ItemGroup>
-    <Content Include="Forms\CMB\form.pdf">
+    <Content Include="Forms\EPAM\form.pdf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
   </ItemGroup>

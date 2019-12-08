@@ -9,7 +9,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace FinTechHackathonAlpha.WebApi.Migrations
 {
     [DbContext(typeof(FinPassDbContext))]
-    [Migration("20191207133015_Initial")]
+    [Migration("20191208033405_Initial")]
     partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -17,16 +17,6 @@ namespace FinTechHackathonAlpha.WebApi.Migrations
 #pragma warning disable 612, 618
             modelBuilder
                 .HasAnnotation("ProductVersion", "2.2.6-servicing-10079");
-
-            modelBuilder.Entity("FinTechHackathonAlpha.WebApi.Entity.DocumentTemplate", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd();
-
-                    b.HasKey("Id");
-
-                    b.ToTable("DocumentTemplates");
-                });
 
             modelBuilder.Entity("FinTechHackathonAlpha.WebApi.Entity.Profile", b =>
                 {
@@ -44,6 +34,10 @@ namespace FinTechHackathonAlpha.WebApi.Migrations
                     b.Property<string>("IDNumber");
 
                     b.Property<string>("LastName");
+
+                    b.Property<string>("Nationality");
+
+                    b.Property<string>("PhoneNumber");
 
                     b.HasKey("Id");
 

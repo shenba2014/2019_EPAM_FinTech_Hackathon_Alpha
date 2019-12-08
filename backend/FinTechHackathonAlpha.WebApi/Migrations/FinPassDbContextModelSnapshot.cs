@@ -16,16 +16,6 @@ namespace FinTechHackathonAlpha.WebApi.Migrations
             modelBuilder
                 .HasAnnotation("ProductVersion", "2.2.6-servicing-10079");
 
-            modelBuilder.Entity("FinTechHackathonAlpha.WebApi.Entity.DocumentTemplate", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd();
-
-                    b.HasKey("Id");
-
-                    b.ToTable("DocumentTemplates");
-                });
-
             modelBuilder.Entity("FinTechHackathonAlpha.WebApi.Entity.Profile", b =>
                 {
                     b.Property<int>("Id")
@@ -42,6 +32,10 @@ namespace FinTechHackathonAlpha.WebApi.Migrations
                     b.Property<string>("IDNumber");
 
                     b.Property<string>("LastName");
+
+                    b.Property<string>("Nationality");
+
+                    b.Property<string>("PhoneNumber");
 
                     b.HasKey("Id");
 
