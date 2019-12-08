@@ -4,7 +4,6 @@ using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using FinTechHackathonAlpha.WebApi.Entity;
-using FinTechHackathonAlpha.WebApi.Models;
 using FinTechHackathonAlpha.WebApi.Repository;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -109,13 +108,8 @@ namespace FinTechHackathonAlpha.WebApi.Controllers
 		    return File(stream, "application/octet-stream", profileArtifact.Name);
 		}
 
-		[HttpPost("create-document-link")]
-		public void CreateDocumentLink([FromBody] CreateDocumentLinkModel model)
-	    {
-	    }
-
 	    [HttpGet("request-document")]
-		public void DownloadDocument(string documentHash)
+		public void RequestDocument(string agency, int profileId, string additionArtifacts)
 	    {
 	    }
 	}

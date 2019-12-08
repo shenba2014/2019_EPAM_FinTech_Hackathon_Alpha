@@ -8,5 +8,9 @@ namespace FinTechHackathonAlpha.WebApi.Entity
 	public class DocumentTemplate : IEntity
 	{
 		public int Id { get; set; }
+
+		public string Agency { get; set; }
+
+		public byte[] Content { get; set; }
 	}
 }
